@@ -1,7 +1,7 @@
 import torch
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
-from models.resnet_fsr import ResNet18_FSR
+from models import ResNet18_FSR
 from attacks import FGSMAttack
 from utils import get_pred
 
