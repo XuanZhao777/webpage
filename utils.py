@@ -15,9 +15,9 @@ def adjust_learning_rate(optimizer, epoch):
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
 
-def get_pred(out, labels):
-    pred = out.sort(dim=-1, descending=True)[1][:, 0]
-    second_pred = out.sort(dim=-1, descending=True)[1][:, 1]
-    adv_label = torch.where(pred == labels, second_pred, pred)
 
-    return adv_label
+def get_pred(outputs, labels):
+    raw_output = outputs[0]  # Assuming the raw output is the first element of the tuple
+    pred = raw_output.max(1)[1]  # Use max instead of sort to get the index of the maximum value
+    correct = pred.eq(labels).sum().item()
+    return correct, pred
