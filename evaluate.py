@@ -72,5 +72,7 @@ def evaluate_fgsm_attack(model, dataloader, fgsm_attack, device):
     accuracy = 100 * correct / total
     return accuracy
 
-# Run the evaluation
-evaluate_model()
+
+if __name__ == '__main__':
+    # Run the evaluation
+    evaluate_model()
