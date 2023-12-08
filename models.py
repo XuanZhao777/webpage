@@ -239,3 +239,4 @@ class ResNet(nn.Module):
 
 def ResNet18_FSR(num_classes=10, tau=0.1, image_size=(32, 32)):
     return ResNet(BasicBlock, [2, 2, 2, 2], num_classes=num_classes, tau=tau, image_size=image_size)
+
